@@ -35,7 +35,10 @@ public class Uso_Empleado {
 		
 		Jefatura jefa_finanzas = (Jefatura) misEmpleados[3];       //Casting de objetos: se pasa de tipo empleado a jefatura
 		
+		
 		jefa_finanzas.estableceIncentivo(10000);   //ahora puede usar ese metodo gracias al casting
+		
+		System.out.println(jefa_finanzas.tomar_decisiones("Dar mas vacaciones"));
 		
 		for (int i=0; i<3; i++) {
 			
@@ -147,7 +150,13 @@ class Empleado implements Comparable{
 
 
 
-class Jefatura extends Empleado{
+class Jefatura extends Empleado implements Jefes{
+	
+	public String tomar_decisiones(String decision) {
+		
+		return "Un miembro de la dirección ha tomado la decisión de: " + decision;
+		
+	}
 	
 	public Jefatura (String nom, double sue, int agno, int mes, int dia) {
 		
